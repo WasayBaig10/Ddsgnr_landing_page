@@ -10,18 +10,18 @@ import Partner from './components/Partner'
 import Footer from './components/Footer'
 function page() {
   return (
-    <>
+    <div className='space-y-20'>
       <Header />
       <Main/>
+      <Collabrations/> 
       <Courses/>
-      <Collabrations/>
       <Preview/>
       <Partner/>
       <Testimonial/>
       <Footer/>
       {/* <Achievements/> */}
-    </>
+    </div>
   )
-}
+} 
 
 export default page

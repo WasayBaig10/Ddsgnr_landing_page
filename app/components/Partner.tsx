@@ -6,16 +6,16 @@ import { BsLinkedin } from "react-icons/bs";
 function Partner() {
   return (
     <div>
-      <section className="w-[100vw] h-max">
-        <div className="text-center">
+      <section className="w-[100vw] space-y-10 h-max">
+        <div className="w-fit h-fit ml-auto mr-auto text-center">
           <h1 className="text-3xl">Our Team</h1>
           <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h6>
         </div>
-        <div className="h-fit w-[99vw] justify-between flex sm:flex-row flex-col flex-wrap">
+        <div className="h-fit w-[99vw] justify-evenly flex flex-wrap">
           <div className="h-[210px] w-[395px] flex flex-col text-center items-center space-y-5 my-7">
             <svg
-              width="80"
-              height="80"
+              width="58.74"
+              height="58.74"
               viewBox="0 0 81 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function Partner() {
               <h1 className="font-bold">James Nduku</h1>
               <h3>Marketing Coordinator</h3>
             </span>
-            <span className="flex space-x-5 pt-10">
+            <span className="flex space-x-5 pt-4">
               <PiDribbbleLogo />
               <BsTwitter />
               <BsLinkedin />
@@ -56,8 +56,8 @@ function Partner() {
           </div>
           <div className="h-[210px] w-[395px] flex flex-col text-center items-center space-y-5 my-7">
             <svg
-              width="80"
-              height="80"
+              width="58.74"
+              height="58.74"
               viewBox="0 0 80 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ function Partner() {
               <h1 className="font-bold">Joseph Munyambu</h1>
               <h3>Nursing Assistant</h3>
             </span>
-            <span className="flex space-x-5 pt-10">
+            <span className="flex space-x-5 pt-4">
               <PiDribbbleLogo />
               <BsTwitter />
               <BsLinkedin />
@@ -93,8 +93,8 @@ function Partner() {
           </div>
           <div className="h-[210px] w-[395px] flex flex-col text-center items-center space-y-5 my-7">
             <svg
-              width="81"
-              height="80"
+              width="58.74"
+              height="58.74"
               viewBox="0 0 81 80"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +128,7 @@ function Partner() {
               <h1 className="font-bold">Joseph Ngumbau</h1>
               <h3>Medical Assistant</h3>
             </span>
-            <span className="flex space-x-5 pt-10">
+            <span className="flex space-x-5 pt-4">
               <PiDribbbleLogo />
               <BsTwitter />
               <BsLinkedin />
@@ -171,6 +171,11 @@ function Partner() {
               <h1 className="font-bold">Eric Kipkembio</h1>
               <h3>Web Designer</h3>
             </span>
+            <span className="flex space-x-5 pt-4">
+              <PiDribbbleLogo />
+              <BsTwitter />
+              <BsLinkedin />
+            </span>
           </div>
           <div className="h-[210px] w-[395px] flex flex-col text-center items-center space-y-5 my-7">
             <svg
@@ -203,6 +208,11 @@ function Partner() {
             <span className="h-fit w-fit leading-7">
               <h1 className="font-bold">Stephen Kerubo</h1>
               <h3>President of Sales</h3>
+            </span>
+            <span className="flex space-x-5 pt-4">
+              <PiDribbbleLogo />
+              <BsTwitter />
+              <BsLinkedin />
             </span>
           </div>
           <div className="h-[210px] w-[395px] flex flex-col text-center items-center space-y-5 my-7">
@@ -240,10 +250,14 @@ function Partner() {
                 />
               </defs>
             </svg>
-
             <span className="h-fit w-fit leading-7">
               <h1 className="font-bold">John Leboo</h1>
               <h3>Dog Trainer</h3>
+            </span>
+            <span className="flex space-x-5 pt-4">
+              <PiDribbbleLogo />
+              <BsTwitter />
+              <BsLinkedin />
             </span>
           </div>
         </div>

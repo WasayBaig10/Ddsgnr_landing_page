@@ -8,25 +8,25 @@ import { BiMenu } from "react-icons/bi";
 function Footer() {
   return (
     <div>
-      <footer className="h-fit w-[100vw] bg-slate-300 space-y-10 ">
-        <div className="h-fit sm:w-[90vw] w-[80vw]  flex bg-slate-300 sm:items-start items-center text-center p-10 sm:ml-auto m-10 sm:flex-row flex-col sm:space-y-0 sm:text-start space-y-6">
-          <div className="leading-8 w-[70%] ">
+      <footer className="h-fit w-full bg-slate-300 space-y-10 ">
+      <div className="w-[92vw] sm:w-[90vw] flex flex-col sm:flex-row h-fit ml-auto mr-auto m-4 items-center justify-between text-center sm:text-start space-y-9 sm:space-y-0">
+          <div className="leading-8 w-[70%] sm:w-fit">
             <h1 className="font-bold text-2xl">Subscribe to our Newsletter</h1>
             <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
           </div>
-          <div className="w-[100vw] sm:w-[30%]">
+          <div className="w-[92vw] sm:w-[30%] pt-5 ">
             <ul className="h-fit w-fit leading-8">
-              <li className="flex w-[50vw] sm:w-[30%] space-x-5">
+              <li className="flex w-[110%] sm:w-[30%] sm:space-x-5 space-x-0 flex-col items-center sm:flex-row space-y-3 sm:space-y-0">
                 <input
-                  type="text"
+                  type="text" 
                   placeholder="Enter your email"
-                  className="bg-transparent h-12 px-2 rounded-sm border border-black"
+                  className="bg-transparent h-12 px-2 rounded-sm border border-black w-[350px] sm:w-fit "
                 />
-                <button className="bg-transparent h-12 px-2 rounded-sm border border-black">
+                <button className="bg-transparent h-12 px-2 rounded-sm border border-black w-[350px] sm:w-fit ">
                   Subscribe
                 </button>
               </li>
-              <li className="text-[9px] flex space-x-1 w-[220px]">
+              <li className="text-[9px] flex space-x-1 w-[217px] sm:w-[220px] sm:mx-0 mx-auto">
                 <h3>By Subscribing you are agreeing to our </h3>
                 <h3 className="underline"> Privacy Policy</h3>
               </li>

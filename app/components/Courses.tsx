@@ -1,16 +1,40 @@
 import React from "react";
 import { BiBook } from "react-icons/bi";
+import { Button } from "@/components/ui/button";
+
 function Courses() {
-  return (
+  // let togglebutton = document.getElementById('toggle-card');
+  // let card = document.getElementById('cards');
+  // togglebutton.addEventListener('click',() => {
+  //     if (card.style.display === 'none') {
+  //         card.style.display = 'block';
+  //     }
+  //     else {
+  //         card.style.display = 'none';
+  //     }
+  // });
+// let button = () => {
+// let togglebutton = document.getElementById('toggle-cards') as HTMLButtonElement;
+// let cards = document.getElementById('cards') as HTMLElement;
+
+// togglebutton.addEventListener('click',() => {
+//     if(cards.style.display === 'none'){
+//         cards.style.display = 'block'
+//     }else{
+//         cards.style.display = 'none'
+//     }
+// });
+// }
+  return(
     <div className="bg-white text-black">
       {/* <div className=''>
             <h1 className=''>Courses</h1>
             </div> */}
-      <div className="w-[100vw] sm:ml-[100px] h-full sm:w-[40%] ml-5 text-black flex flex-col justify-center ">
-        <h1 className="sm:text-[40px] text-[30px] font-semibold">
+      <div className="w-[80vw] sm:ml-[100px] h-full sm:w-[40%] ml-5 text-black flex flex-col justify-center space-y-4 ">
+        <h1 className="sm:text-[40px] text-[30px] font-semibold leading-9 sm:leading-snug">
           Explore Courses by Category
         </h1>
-        <h1 className="w-[80vw] ml-auto mr-auto text-[19px] ">
+        <h1 className="ml-auto mr-auto text-[19px] ">
           Discover a ideal range of courses covering a variety of subjects,
           taught by expert instructors
         </h1>
@@ -193,7 +217,7 @@ function Courses() {
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white "/>  */}
               <svg
@@ -234,12 +258,12 @@ function Courses() {
                 />
               </svg>
             </div>
-            <div className="w-[68%] h-[100%] bg-slate-100 text-left flex flex-col justify-center  p-2">
+            <div id="cards" className="w-[68%] h-[100%] bg-slate-100 text-left flex flex-col justify-center  p-2">
               <h1 className="font-semibold text-xl">Communication</h1>
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white "/>  */}
               <svg
@@ -277,7 +301,7 @@ function Courses() {
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div id="cards" className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white "/>  */}
               <svg
@@ -329,7 +353,7 @@ function Courses() {
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div id="cards" className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white "/>  */}
               <svg
@@ -387,7 +411,7 @@ function Courses() {
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div id="cards" className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white "/>  */}
               <svg
@@ -439,7 +463,7 @@ function Courses() {
               <h1 className="text-[20px]">50+ Courses Available</h1>
             </div>
           </div>
-          <div className="w-[380px] bg-slate-100 flex h-[130px] m-5 ">
+          <div id="cards" className="w-[380px] bg-slate-100 hidden sm:flex h-[130px] m-5 ">
             <div className="w-[32%] h-[100%] bg-white border-slate-100 border-x-[15px] border-y-[15px] flex justify-center items-center">
               {/* <BiBook size={26} className="bg-white " /> */}
               <svg
@@ -527,6 +551,9 @@ function Courses() {
               <h1>50+ Courses Available</h1> 
             </div>
           </div> */}
+          <div className="sm:hidden block" id="toggle-cards">
+            <Button className="border border-black h-12 w-36 rounded-md ml-4 text-xl bg-white text-black hover:text-slate-50 hover:bg-black">View More</Button>
+          </div>
         </section>
       </div>
     </div>
