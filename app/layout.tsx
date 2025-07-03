@@ -1,6 +1,22 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Outfit, Michroma } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Providers from './providers'; // default import
+import Page from "./page";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  weight: ["400", "700"], // only if Outfit supports this range
+});
+const michroma = Michroma({
+  subsets: ["latin"],
+  variable: "--font-michroma",
+  weight: ["400", "400"], // only if Outfit supports this range
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,11 +41,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async  
+          defer
+        ></script>
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${michroma.variable}  antialiased`}
       >
+        <Providers>
+        <Header />  
         {children}
+        <Footer />
+        </Providers>
       </body>
     </html>
   );
 }
+
+// // If you're using the App Router (app/layout.tsx)
+// export const metadata = { title: 'Khalid and sons' };
+
+// export default function RootLayout({ children }: { children: React.ReactNode }) {
+//   return (
+//     <html lang="en">
+//       <head>
+//         <script
+//           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+//           async
+//           defer
+//         ></script>
+//       </head>
+//       <body>{children}</body>
+//     </html>
+//   );
+// }
