@@ -6,12 +6,22 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Providers from './providers'; // default import
 import Page from "./page";
-
+import { Tektur } from "next/font/google";
+import ClickSpark from './components/animations/ClickSpark';
+import TrailingCursor from "./components/animations/TrailingCursor";
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
   weight: ["400", "700"], // only if Outfit supports this range
 });
+
+const tektur = Tektur({
+  subsets: ["latin"],
+  variable: "--font-taktur",
+  weight: ["500", "800"], // only if Outfit supports this range
+});
+
+
 const michroma = Michroma({
   subsets: ["latin"],
   variable: "--font-michroma",
@@ -41,22 +51,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          async  
-          defer
-        ></script>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${michroma.variable}  antialiased`}
+      <TrailingCursor/>
+      <ClickSpark
+        sparkColor='#000000'
+        sparkSize={20}
+        sparkRadius={15}
+        sparkCount={2}
+        duration={400}
       >
-        <Providers>
-        <Header />  
-        {children}
-        <Footer />
-        </Providers>
-      </body>
+        <head>
+          <script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            async
+            defer
+          ></script>
+        </head>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${tektur.variable} ${michroma.variable}  antialiased`}
+        >
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
+        </body>
+      </ClickSpark >
     </html>
   );
 }

@@ -1,3 +1,4 @@
+import { Tektur } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -14,6 +15,7 @@ export default {
         michroma: ["var(--font-michroma)"],
         geistSans: ["var(--font-geist-sans)"],
         geistMono: ["var(--font-geist-mono)"],
+        tektur: ["var(--font-tektur)"],
       },		
       screens: {
         sm: "500px",

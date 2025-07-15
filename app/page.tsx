@@ -17,6 +17,7 @@ import LoginPage from './Login/page';
 import { useSession } from '@supabase/auth-helpers-react';
 import AuthPage from './appAuth/page';
 import CartPage from './cart/page';
+import TrailingCursor from './components/animations/TrailingCursor';
 
 // import ProductList from './components/prodList';
   function Page() {
@@ -31,12 +32,13 @@ import CartPage from './cart/page';
     });
   }, []); 
 
+  
 const session = useSession();
 console.log('🧠 Session from hook:', session);
 
   return (
     <div className="space-y-20">
-      {/* <Main />
+      <Main />
       <Cards />
       <BusinessCard
         name="Your Name"
@@ -46,7 +48,7 @@ console.log('🧠 Session from hook:', session);
         location="Location"
         website="yourwebsite.com"
       />  
-      <Categ />       */}
+      <Categ />      
       {/* <Footer />
       <ProductPage params={{
         id: ''
@@ -56,7 +58,7 @@ console.log('🧠 Session from hook:', session);
       {/* <ProductList /> */}
       {/* <AddToCartPage /> */}
       {/* <LoginPage /> */}
-      <AuthPage />
+      {/* <AuthPage /> */}
       {/* <CartPage />   */}
     </div>
   );

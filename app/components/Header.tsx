@@ -1,91 +1,103 @@
-import React from "react";
-import { BsFacebook } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
-import { BsTwitter } from "react-icons/bs";
-import { BsLinkedin } from "react-icons/bs";
-import { Button } from "@/components/ui/button";
-import { BiMenu } from "react-icons/bi";
-import { BiMenuAltRight } from "react-icons/bi";
-import { BiSearch } from "react-icons/bi";
-import { BiCart } from "react-icons/bi";
-import { CgClose } from "react-icons/cg";
-import style from './Header.module.css'
-import Link from "next/link";
-import Image from "next/image";
-function Header() {
-  //   let func = () => {
-  //     let togglebutton = document.getElementById('menu') as HTMLButtonElement;
-  //     let sidebar = document.getElementById('opt') as HTMLElement;
+'use client';
 
-  //     togglebutton.addEventListener('click',() => {
-  //         if(sidebar.style.display === 'none'){
-  //             sidebar.style.display = 'block'
-  //         }else{
-  //             sidebar.style.display = 'none'
-  //         }
-  //     })
-  // }
+import { ShirtIcon } from 'lucide-react';
+import { FaShirtsinbulk } from 'react-icons/fa6';
+import { FaShirt } from 'react-icons/fa6';
+import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
+import { Menu, X, Home, ShoppingBag, Info, Phone } from 'lucide-react';
+
+export default function LayoutShell({ children }: { children: React.ReactNode }) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const { scrollY } = useScroll();
+
+  const headerWidth = useTransform(scrollY, [0, 400], ['60vw', '90vw']);
+  const borderRadius = useTransform(scrollY, [0, 400], ['1.5rem', '0.5rem']);
+  const padding = useTransform(scrollY, [0, 400], ['1.25rem', '0.75rem']);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSidebarOpen(false);
+    };
+    document.addEventListener('keydown', handleEsc);
+    return () => document.removeEventListener('keydown', handleEsc);
+  }, []);
+
+  const navLinks = [
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/products', label: 'Products', icon: ShoppingBag },
+    { href: '/about', label: 'About', icon: Info },
+    { href: '/contact', label: 'Contact', icon: Phone },
+  ];
+
   return (
-    <div className={style.nav}>
-      <nav className="w-full py-4 px-6 flex justify-between items-center bg-white shadow-md font-michroma">
-        <div className="flex items-center">
-          <Link href="/" className="text-xl font-bold">
-              <Image
-              className="md:hidden block"
-          src="/Shop3.png" // MUST start with /
-          alt="logo"
-          width={70}
-          height={90}
-        />
-              <Image
-              className="hidden md:block"
-          src="/Shop1.png" // MUST start with /
-          alt="logo"
-          width={188}
-          height={68}
-        />
-          </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link href="/" className="hover:text-gray-600">Home</Link>
-          <Link href="/Products" className="hover:text-gray-600">Products</Link>
-          <Link href="/Cart" className="hover:text-gray-600">Cart</Link>
-          {/* <Link href="/login" className="hover:text-gray-600">Login</Link> */}
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="md:hidden">
-          <input type="checkbox" id="sidebar-active" className="hidden" />
-          <label htmlFor="sidebar-active" className="cursor-pointer">
-        <BiMenuAltRight size={30} />
-          </label>
-
-          {/* Mobile Menu */}
-          <div className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-200 ease-in-out
-            [input:checked~&]:translate-x-0">
-        <div className="p-6">
-          <label htmlFor="sidebar-active" className="block mb-8 cursor-pointer">
-            <CgClose size={24} />
-          </label>
-          <div className="flex flex-col space-y-6"> 
-            <Link href="/" className="hover:text-gray-600">Home</Link>
-            {/* <Link href="/about" className="hover:text-gray-600">About</Link> */}
-            <Link href="/products" className="hover:text-gray-600">Products</Link>
-            <Link href="/Cart" className="hover:text-gray-600">Cart</Link>
-            {/* <Link href="/login" className="hover:text-gray-600">Login</Link> */}
+    <>
+      {/* Stretchy Animated Header */}
+      <motion.div
+        style={{ width: headerWidth, borderRadius, padding }}
+        className="fixed top-4 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-md text-white z-50 shadow-xl transition-all"
+      >
+        <div className="flex justify-between items-center font-michroma">
+          <span className="text-lg font-bold flex items-center justify-center "> <FaShirtsinbulk className='mr-2'/> K&S .</span>
+          <div className="hidden md:flex gap-6 text-sm">
+            {navLinks.map(({ href, label }) => (
+              <Link key={href} href={href} className="hover:text-blue-400">
+                {label}
+              </Link>
+            ))}
           </div>
+          <button onClick={() => setSidebarOpen(true)} className="md:hidden">
+            <Menu size={24} />
+          </button>
         </div>
-          </div>
-          
-          {/* Overlay */}
-          <label htmlFor="sidebar-active" className="fixed inset-0  bg-opacity-50 hidden
-                       [input:checked~&]:block"></label>
+      </motion.div>
+
+      {/* Sidebar Overlay */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <motion.aside
+        initial={{ x: '-100%' }}
+        animate={{ x: isSidebarOpen ? 0 : '-100%' }}
+        transition={{ type: 'spring', stiffness: 90, damping: 15 }}
+        className="fixed top-0 left-0 h-full w-[80vw] max-w-sm bg-white/80 backdrop-blur-md z-50 p-6 shadow-lg"
+      >
+        <div className="flex justify-between items-center mb-8 font-michroma">
+          <h2 className="text-lg font-semibold">Menu</h2>
+          <button onClick={() => setSidebarOpen(false)}>
+            <X size={24} />
+          </button>
         </div>
-      </nav>
-        </div>
+        <nav className="flex flex-col gap-5 text-base font-medium font-michroma">
+          {navLinks.map(({ href, label, icon: Icon }) => (
+            <Link
+              key={href}
+              href={href}
+              className="flex items-center gap-3 hover:text-blue-500 transition"
+            >
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <Icon size={20} />
+              </motion.div>
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </motion.aside>
+
+      {/* Page Content */}
+      <div className="h-0 " /> {/* Space for header to overlap */}
+      <main className="px-6 bg-gradient-to-b from-slate-900 to-gray-800 text-white">
+        {children}
+      </main>
+    </>
   );
 }
-
-export default Header;
