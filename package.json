@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-on-pages",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudflare/next-on-pages": "^1.13.12",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-icons/all-files": "^4.1.0",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
